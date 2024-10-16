@@ -13,7 +13,7 @@ module.exports = {
       'sm': {'max': '576px'},
       'xs': {'max': '480px'},
       '2xs': {'max': '340px'},
-    }
+    } 
   },
   plugins: [],
 }
