@@ -6,14 +6,16 @@ module.exports = {
   theme: {
     extend: {},
     screens: {
-      'xl': {'max': '1200px'},
-      'lg': {'max': '1080px'},
-      'md-lg': {'max': '991px'},
-      'md': {'max': '768px'},
-      'sm': {'max': '576px'},
-      'xs': {'max': '480px'},
-      '2xs': {'max': '340px'},
-    } 
+      'phone': '320px',
+      'tablet': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'laptop': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'desktop': '1280px',
+      // => @media (min-width: 1280px) { ... }
+    },
   },
   plugins: [],
 }
