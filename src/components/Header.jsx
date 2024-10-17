@@ -9,7 +9,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { Link, useLocation } from 'react-router-dom';
 import { FaHeart } from "react-icons/fa6";
 import { FaCartShopping } from "react-icons/fa6";
-
+import { FaPhoneAlt } from "react-icons/fa";
 
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
                         <ul className='flex justify-start items-center gap-8 font-semibold text-black'>
                             <li className='flex relative justify-center items-center gap-2 text-sm after:absolute after:h-[18px] after:w-[1px] after:bg-[#afafaf] after:-right-[16px]'>
                                 <span><MdEmail /></span>
-                                <span>support@gmail.com</span>
+                                <span>support@greenviewsoft.com</span>
                             </li>
 
                             <li className='flex relative justify-center items-center gap-2 text-sm '>
@@ -49,7 +49,7 @@ const Header = () => {
             <img src="http://localhost:3000/images/language.png" alt="" />
             <span><IoMdArrowDropdown /></span>
             <ul className='absolute invisible transition-all top-12 rounded-sm duration-200 text-white p-2 w-[100px] flex flex-col gap-3 group-hover:visible group-hover:top-6 group-hover:bg-black z-10'>
-            <li>Hindi</li>
+            <li>Bangla</li>
             <li>English</li>
             </ul>
         </div>
@@ -191,6 +191,28 @@ const Header = () => {
                         </li>
 
                     </ul>
+
+                    <div className='flex justify-start items-center gap-4 text-black'>
+                    <a href="#"><FaFacebookF /></a>
+                    <a href="#"><FaTwitter /> </a>
+                    <a href="#"><FaLinkedin /></a>
+                    <a href="#"><FaGithub /> </a> 
+        </div>
+        <div className='w-full flex justify-end md-lg:justify-start gap-3 items-center'>
+        <div className='w-[48px] h-[48px] rounded-full flex bg-[#f5f5f5] justify-center items-center '>
+        <span><FaPhoneAlt /></span>
+        </div>
+        <div className='flex justify-end flex-col gap-1'>
+            <h2 className='text-sm font-medium text-slate-700'>+134343455</h2>
+            <span className='text-xs'>Support 24/7</span> 
+        </div>
+        </div>
+        <ul className='flex flex-col justify-start items-start gap-3 text-[#1c1c1c]'>
+            <li className='flex justify-start items-center gap-2 text-sm'>
+             <span><MdEmail /></span>
+             <span>support@greenviewsoft.com</span>
+            </li>
+        </ul>
 
 
 
