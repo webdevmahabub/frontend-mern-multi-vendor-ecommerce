@@ -4,6 +4,7 @@ import Banner from '../components/Banner';
 import Categorys from '../components/Category';
 import FeatureProducts from '../components/products/FeatureProduct';
 import Products from '../components/products/Products';
+import Footer from '../components/Footer';
 
 const Home = () => {
     return (
@@ -28,10 +29,11 @@ const Home = () => {
             <div className='overflow-hidden'>
                 <Products title='Discount Product'/>
             </div>
+
                     </div> 
                 </div> 
             </div>
- 
+            <Footer/>
         </div>
 
     );
