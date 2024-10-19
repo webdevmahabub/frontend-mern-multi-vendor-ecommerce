@@ -9,7 +9,7 @@ import {CiStar} from 'react-icons/ci'
 import Products from '../components/products/Products';
 import {BsFillGridFill} from 'react-icons/bs'
 import {FaThList} from 'react-icons/fa'
-
+import ShopProducts from '../components/products/ShopProducts';
 const Shops = () => {
     const [filter, setFilter] = useState(true)
     const categorys = [
@@ -166,11 +166,15 @@ const Shops = () => {
             </div>
         </div>
         </div> 
-            </div> 
-         </div>  
+        </div> 
+            
+            
+            
+        <div className='pb-8'>
+            <ShopProducts styles={styles} />  
+         </div>
 
-
-
+            </div>  
             </div>
             </div>
             </div> 
