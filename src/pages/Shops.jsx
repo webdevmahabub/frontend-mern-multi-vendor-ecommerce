@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowForward } from "react-icons/io";
 import { Range } from 'react-range';
 import {AiFillStar} from 'react-icons/ai'
-import {CiStar} from 'react-icons/ci'
+import {CiStar} from 'react-icons/ci' 
+import Products from '../components/products/Products';
 
 const Shops = () => {
-
     const [filter, setFilter] = useState(true)
     const categorys = [
         'Mobiles',
@@ -23,6 +23,8 @@ const Shops = () => {
 
     const [state, setState] = useState({values: [50, 1500]})
     const [rating, setRating] = useState('')
+
+
     return (
         <div>
            <Header/>
@@ -37,10 +39,10 @@ const Shops = () => {
                         <IoIosArrowForward />
                         </span>
                         <span>Shop </span>
-                </div>
-                    </div>
-                </div>
-            </div>
+                      </div>
+                    </div> 
+                </div> 
+            </div> 
            </section>
 
            <section className='py-16'>
@@ -48,6 +50,7 @@ const Shops = () => {
             <div className={` md:block hidden ${!filter ? 'mb-6' : 'mb-0'} `}>
                 <button onClick={() => setFilter(!filter)} className='text-center w-full py-2 px-3 bg-indigo-500 text-white'>Filter Product</button> 
             </div>
+
             <div className='w-full flex flex-wrap'>
                 <div className={`w-3/12 md-lg:w-4/12 md:w-full pr-8 ${filter ? 'md:h-0 md:overflow-hidden md:mb-6' : 'md:h-auto md:overflow-auto md:mb-0' } `}>
                     <h2 className='text-3xl font-bold mb-3 text-slate-600'>Category </h2>
@@ -60,9 +63,9 @@ const Shops = () => {
                         }
                     </div>
 
-                    <div className='py-2 flex flex-col gap-5'>
+        <div className='py-2 flex flex-col gap-5'>
             <h2 className='text-3xl font-bold mb-3 text-slate-600'>Price</h2>
-             
+
              <Range
                 step={5}
                 min={50}
@@ -76,13 +79,14 @@ const Shops = () => {
                 )}
                 renderThumb={({ props }) => (
                     <div className='w-[15px] h-[15px] bg-[#059473] rounded-full' {...props} />
-    
+
                 )} 
              />  
-         </div>
+         <div>
          <span className='text-slate-800 font-bold text-lg'>${Math.floor(state.values[0])} - ${Math.floor(state.values[1])}</span>  
            </div>
          </div>
+
          <div className='py-3 flex flex-col gap-4'>
             <h2 className='text-3xl font-bold mb-3 text-slate-600'>Rating </h2>
             <div className='flex flex-col gap-3'>
@@ -93,6 +97,7 @@ const Shops = () => {
                     <span><AiFillStar/> </span>
                     <span><AiFillStar/> </span>
                   </div>
+
                   <div onClick={() => setRating(4)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                     <span><AiFillStar/> </span>
                     <span><AiFillStar/> </span>
@@ -100,6 +105,7 @@ const Shops = () => {
                     <span><AiFillStar/> </span>
                     <span><CiStar/> </span>
                   </div>
+
                   <div onClick={() => setRating(3)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                     <span><AiFillStar/> </span>
                     <span><AiFillStar/> </span>
@@ -107,6 +113,7 @@ const Shops = () => {
                     <span><CiStar/> </span>
                     <span><CiStar/> </span>
                   </div>
+
                   <div onClick={() => setRating(2)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                     <span><AiFillStar/> </span>
                     <span><AiFillStar/> </span>
@@ -114,6 +121,7 @@ const Shops = () => {
                     <span><CiStar/> </span>
                     <span><CiStar/> </span>
                   </div>
+
                   <div onClick={() => setRating(1)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                     <span><AiFillStar/> </span>
                     <span><CiStar/> </span>
@@ -121,21 +129,32 @@ const Shops = () => {
                     <span><CiStar/> </span>
                     <span><CiStar/> </span>
                   </div>
+
                   <div className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                   <span><CiStar/> </span>
                   <span><CiStar/> </span>
                   <span><CiStar/> </span>
                   <span><CiStar/> </span>
                   <span><CiStar/> </span>
-                  </div>
+                  </div> 
             </div> 
          </div>
-                
+        
+        
+        <div className='py-5 flex flex-col gap-4 md:hidden'>
+            <Products title='Latest Product' />
+        </div>
+
+
+
+            </div>
+            </div>
             </div> 
            </section>
-           
+
            <Footer/>
         </div>
     );
 };
+
 export default Shops;
