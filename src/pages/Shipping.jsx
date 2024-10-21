@@ -134,7 +134,7 @@ const Shipping = () => {
               {
                    [1,2].map((p,i) => <div className='flex bg-white p-4 flex-col gap-2'>
                    <div className='flex justify-start items-center'>
-                       <h2 className='text-md text-slate-600 font-bold'>Easy Shop</h2>
+                       <h2 className='text-md text-slate-600 font-bold'>Shwapno</h2>
                    </div>
                    {
                        [1,2].map((p,i) => <div className='w-full flex flex-wrap'>
