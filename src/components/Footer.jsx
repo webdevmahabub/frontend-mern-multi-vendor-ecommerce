@@ -89,11 +89,10 @@ const Footer = () => {
                 </div> 
             </div> 
             <div className='w-[90%] flex flex-wrap justify-center items-center text-slate-600 mx-auto py-5 text-center'>
-            <span>Copiright @ 2024 All Rights Reserved </span>
-
+            <span>©2024 GreenViewSoft. All rights reserved.</span>
             </div>
+            <span class="font-extrabold">  Programmed by Mahabub</span>
             </div>
-           
         </footer>
     );
 };
