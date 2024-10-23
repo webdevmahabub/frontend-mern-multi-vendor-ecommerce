@@ -233,7 +233,7 @@ const Details = () => {
 <div className='w-[28%] md-lg:w-full'>
 <div className='pl-4 md-lg:pl-0'>
     <div className='px-3 py-2 text-slate-600 bg-slate-200'>
-        <h2 className='font-bold'>From Easy Shop</h2>
+        <h2 className='font-bold'>From Green Shop</h2>
     </div>
     <div className='flex flex-col gap-5 mt-3 border p-3'>
         {
@@ -296,19 +296,26 @@ const Details = () => {
                     <Link className='block'>
                         <div className='relative h-[270px]'>
                             <div className='w-full h-full'>
-                    <img src={`http://localhost:3000/images/products/${p}.webp`} alt="" />
+                            <img className='w-full h-full' src={`http://localhost:3000/images/products/${p}.webp`} alt="" />
                     <div className='absolute h-full w-full top-0 left-0 bg-[#000] opacity-25 hover:opacity-50 transition-all duration-500'> 
                     </div>
                            </div>
             {
             discount !== 0 && <div className='flex justify-center items-center absolute text-white w-[38px] h-[38px] rounded-full bg-red-500 font-semibold text-xs left-2 top-2'>{discount}%
             </div>
-            }
-
-
-                        </div>
+            } 
+                </div>
+                <div className='p-4 flex flex-col gap-1'>
+            <h2 className='text-slate-600 text-lg font-bold'>Product Name </h2>
+            <div className='flex justify-start items-center gap-3'>
+                <h2 className='text-lg font-bold text-slate-600'>$434</h2>
+                <div className='flex'>
+                    <Rating ratings={4.5}  />
+                </div>
+            </div>
+            </div>
                     </Link>
-
+                    
                 </SwiperSlide>
 
             )
@@ -316,6 +323,10 @@ const Details = () => {
     }
     
     </Swiper>
+</div>
+<div className='w-full flex justify-center items-center py-8'>
+<div className='custom_bullet justify-center gap-3 !w-auto'> 
+</div>
 </div>
 </div>
 </section>
