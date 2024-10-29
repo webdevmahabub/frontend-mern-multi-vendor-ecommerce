@@ -13,6 +13,10 @@ const Home = () => {
     const dispatch = useDispatch()
     const {categorys,products,latest_product,topRated_product,discount_product} = useSelector(state => state.home)
 
+    useEffect(() => {
+        dispatch(get_category())
+        dispatch(get_products())
+    },[])
 
     return (
         <div className='w-full'>
@@ -34,7 +38,7 @@ const Home = () => {
             <Products title='Top Rated Product' products={topRated_product}/>
             </div>
             <div className='overflow-hidden'>
-            <Products title='Discount Product' products={discount_product}/>
+            <Products title='Discount Product' products={discount_product}/>    
             </div>
 
                     </div> 
