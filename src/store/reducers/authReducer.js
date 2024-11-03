@@ -14,7 +14,7 @@ export const customer_register = createAsyncThunk(
         }
     }
 )
-// End Method 
+// End Method   
 
 export const authReducer = createSlice({
     name: 'auth',
