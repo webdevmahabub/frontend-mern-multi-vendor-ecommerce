@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import { FaFacebookF } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa6"; 
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { customer_register } from '../store/reducers/authReducer';
 
 const Register = () => {
     const [state, setState] = useState({
@@ -11,6 +13,7 @@ const Register = () => {
         email: '',
         password: ''
     })
+    const dispatch = useDispatch()
     const inputHandle = (e) => {
         setState({
             ...state,
@@ -20,7 +23,7 @@ const Register = () => {
  
     const register = (e) => {
         e.preventDefault()
-        console.log(state)
+        dispatch(customer_register(state))
     }
     return (
 
