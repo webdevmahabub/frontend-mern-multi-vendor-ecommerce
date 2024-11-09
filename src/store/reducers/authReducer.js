@@ -7,14 +7,14 @@ export const customer_register = createAsyncThunk(
         try {
             const {data} = await api.post('/customer/customer-register',info)
             localStorage.setItem('customerToken',data.token)
-            // console.log(data)
+           // console.log(data)
             return fulfillWithValue(data)
         } catch (error) {
-            console.log(error.respone)
+            return rejectWithValue(error.response.data)
         }
     }
 )
-// End Method   
+// End Method  
 
 export const authReducer = createSlice({
     name: 'auth',
