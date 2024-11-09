@@ -67,8 +67,10 @@ export const authReducer = createSlice({
             state.loader = false;
         })
         .addCase(customer_register.fulfilled, (state, { payload }) => {
+            const userInfo = decodeToken(payload.token)
             state.successMessage = payload.message;
             state.loader = false;
+            state.userInfo = userInfo
         })
         .addCase(customer_login.pending, (state, { payload }) => {
             state.loader = true;
@@ -78,8 +80,10 @@ export const authReducer = createSlice({
             state.loader = false;
         })
         .addCase(customer_login.fulfilled, (state, { payload }) => {
+            const userInfo = decodeToken(payload.token)
             state.successMessage = payload.message;
             state.loader = false;
+            state.userInfo = userInfo
         })
     }
 })
