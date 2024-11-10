@@ -34,8 +34,14 @@ export const cardReducer = createSlice({
  
     },
     extraReducers: (builder) => {
-        
-        
+        builder
+        .addCase(add_to_card.rejected, (state, { payload }) => {
+            state.errorMessage = payload.error; 
+        })
+        .addCase(add_to_card.fulfilled, (state, { payload }) => { 
+            state.successMessage = payload.message; 
+            state.card_product_count = state.card_product_count + 1
+        })
     }
 })
 export const {messageClear} = cardReducer.actions
