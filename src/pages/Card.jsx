@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoIosArrowForward } from "react-icons/io";
 
-const Cart = () => {
+const Card = () => {
     const navigate = useNavigate()
     const card_products = [1,2]
     const outOfStockProduct = [1,2]
@@ -174,4 +174,4 @@ const Cart = () => {
     );
 };
 
-export default Cart;
+export default Card;
