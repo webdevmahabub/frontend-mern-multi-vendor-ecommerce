@@ -79,6 +79,9 @@ export const cardReducer = createSlice({
             state.outofstock_products = payload.outOfStockProduct
             state.buy_product_item = payload.buy_product_item 
         })
+        .addCase(delete_card_product.fulfilled, (state, { payload }) => { 
+            state.successMessage = payload.message;  
+        })
     }
 })
 export const {messageClear} = cardReducer.actions
