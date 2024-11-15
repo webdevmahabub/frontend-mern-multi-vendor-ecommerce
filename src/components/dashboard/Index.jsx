@@ -1,15 +1,30 @@
 import React, { useEffect } from 'react';
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { get_dashboard_index_data } from '../../store/reducers/dashboardReducer';
 const Index = () => {
+    const navigate = useNavigate()
     const {recentOrders,totalOrder,pendingOrder,cancelledOrder} = useSelector(state => state.dashboard)
     const dispatch = useDispatch()
     const {userInfo} = useSelector(state => state.auth)
     useEffect(() => {
         dispatch(get_dashboard_index_data(userInfo.id))
     },[])
+
+    const redirect = (ord) => {
+        let items = 0;
+        for (let i = 0; i < ord.length; i++) {
+            items = ord.products[i].quantity + items; 
+        }
+        navigate('/payment',{
+            state: {
+                price: ord.price,
+                items,
+                orderId: ord._id 
+            }
+        }) 
+    }
 
     return (
 <div>
@@ -65,8 +80,11 @@ const Index = () => {
                 <td scope='row' className='px-6 py-4 font-medium whitespace-nowrap'>{o.payment_status }</td>
                 <td scope='row' className='px-6 py-4 font-medium whitespace-nowrap'>{o.delivery_status}</td>
                 <td scope='row' className='px-6 py-4 font-medium whitespace-nowrap'>
-                    <Link><span className='bg-green-200 text-green-800 text-md font-semibold mr-2 px-3 py-[2px] rounded'>View</span></Link>
-                    <Link><span className='bg-green-200 text-green-800 text-md font-semibold mr-2 px-3 py-[2px] rounded'>Pay Now</span></Link> 
+                <Link to={`/dashboard/order/details/${o._id}`}><span className='bg-green-200 text-green-800 text-md font-semibold mr-2 px-3 py-[2px] rounded'>View</span></Link>
+                    {
+                       o.payment_status !== 'paid' && <span onClick={() => redirect(o)} className='bg-green-200 text-green-800 text-md font-semibold mr-2 px-3 py-[2px] rounded cursor-pointer'>Pay Now</span> 
+                    }
+                
                 </td> 
             </tr>
             
