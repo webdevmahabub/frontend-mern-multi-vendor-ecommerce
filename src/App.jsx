@@ -13,6 +13,8 @@ import { useDispatch} from 'react-redux';
 import CategoryShop from './pages/CategoryShop';
 import SearchProducts from './pages/SearchProducts';
 import Payment from './pages/Payment';
+import Dashboard from './pages/Dashboard';
+import ProtectUser from './utils/ProtectUser';
 
 function App() {
   const dispatch = useDispatch()
@@ -31,6 +33,11 @@ function App() {
       <Route path='/shipping' element={<Shipping/>} />
       <Route path='/payment' element={<Payment/>} />
       <Route path='/product/details/:slug' element={<Details/>} /> 
+      <Route path='/dashboard' element={<ProtectUser/>} >
+      <Route path='' element={<Dashboard/>} >
+       
+      </Route> 
+      </Route>
       <Route path='/products?' element={<CategoryShop/>} />
       <Route path='/products/search?' element={<SearchProducts/>} />
     </Routes>
