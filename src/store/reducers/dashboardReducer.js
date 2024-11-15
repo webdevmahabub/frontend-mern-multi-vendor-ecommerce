@@ -5,7 +5,8 @@ export const get_dashboard_index_data = createAsyncThunk(
     async(userId, { rejectWithValue,fulfillWithValue }) => {
         try {
             const {data} = await api.get(`/home/customer/get-dashboard-data/${userId}`) 
-            console.log(data)
+            // console.log(data)
+             return fulfillWithValue(data)
             // return fulfillWithValue(data)
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -33,15 +34,13 @@ export const dashboardReducer = createSlice({
  
     },
     extraReducers: (builder) => {
-        // builder
-        
-        // .addCase(customer_register.fulfilled, (state, { payload }) => {
-        //     const userInfo = decodeToken(payload.token)
-        //     state.successMessage = payload.message;
-        //     state.loader = false;
-        //     state.userInfo = userInfo
-        // })
-        
+        builder
+        .addCase(get_dashboard_index_data.fulfilled, (state, { payload }) => { 
+            state.totalOrder = payload.totalOrder;
+            state.pendingOrder = payload.pendingOrder;
+            state.cancelledOrder = payload.cancelledOrder;
+            state.recentOrders = payload.recentOrders;
+        })
     }
 })
 export const {messageClear} = dashboardReducer.actions
