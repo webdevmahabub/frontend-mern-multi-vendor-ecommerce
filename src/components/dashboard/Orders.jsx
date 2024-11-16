@@ -5,14 +5,16 @@ import { get_orders } from '../../store/reducers/orderReducer';
 
 const Orders = () => {
     const [state, setState] = useState('all')
-
-    const navigate = useNavigate()
-    const dispatch = useDispatch() 
+    const dispatch = useDispatch()
+    const { orderId } = useParams()
     const {userInfo} = useSelector(state => state.auth)
+    const navigate = useNavigate()
     const { myOrders } = useSelector(state => state.order)
     useEffect(() => {
         dispatch(get_orders({status:state, customerId:userInfo.id}))
     },[state])
+    
+
     const redirect = (ord) => {
         let items = 0;
         for (let i = 0; i < ord.length; i++) {
@@ -26,6 +28,7 @@ const Orders = () => {
             }
         }) 
     }
+    
 
 
     return (
@@ -67,16 +70,15 @@ const Orders = () => {
                     }
 
                       
-                </td> 
-            </tr>  
+                    </td> 
+                </tr>  
                 )
             } 
-        </tbody>
-</table>
-        </div>
+                    </tbody>
+                </table>
             </div>
-
         </div>
+    </div>
     );
-};
+}
 export default Orders;
