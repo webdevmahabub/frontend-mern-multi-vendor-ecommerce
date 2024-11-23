@@ -155,6 +155,11 @@ export const homeReducer = createSlice({
         .addCase(customer_review.fulfilled, (state, { payload }) => {
             state.successMessage = payload.message;
         })
+        .addCase(get_reviews.fulfilled, (state, { payload }) => {
+            state.reviews = payload.reviews;
+            state.totalReview = payload.totalReview;
+            state.rating_review = payload.rating_review;
+        })
     }
 
     
