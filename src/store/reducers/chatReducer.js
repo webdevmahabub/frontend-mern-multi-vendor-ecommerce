@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import api from "../../api/api"; 
 
-
 export const add_friend = createAsyncThunk(
     'chat/add_friend',
     async(info, { rejectWithValue,fulfillWithValue }) => {
@@ -15,7 +14,7 @@ export const add_friend = createAsyncThunk(
     }
 )
 // End Method 
- 
+
 export const chatReducer = createSlice({
     name: 'chat',
     initialState:{
@@ -30,17 +29,14 @@ export const chatReducer = createSlice({
             state.errorMessage = ""
             state.successMessage = ""
         }
- 
     },
     extraReducers: (builder) => {
-        // builder 
-        // .addCase(customer_register.fulfilled, (state, { payload }) => {
-        //     const userInfo = decodeToken(payload.token)
-        //     state.successMessage = payload.message;
-        //     state.loader = false;
-        //     state.userInfo = userInfo
-        // })
-       
+        builder 
+        .addCase(add_friend.fulfilled, (state, { payload }) => { 
+            state.fb_messages = payload.messages;
+            state.currentFd = payload.currentFd;
+            state.my_friends = payload.MyFriends;
+        })
     }
 })
 export const {messageClear} = chatReducer.actions
