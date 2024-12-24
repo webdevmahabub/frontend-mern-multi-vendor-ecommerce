@@ -298,7 +298,9 @@ const Details = () => {
                 }
                 <Link to={`/dashboard/chat/${product.sellerId}`} className='px-8 py-3 h-[50px] cursor-pointer hover:shadow-lg hover:shadow-red-500/40 bg-red-500 text-white'>
                     Chat Seller
+                    
                 </Link>
+                
             </div>
              </div>   
             </div> 
