@@ -15,7 +15,7 @@ const Chat = () => {
     const { userInfo } = useSelector(state => state.auth)
     const { fb_messages, currentFd, my_friends, successMessage } = useSelector(state => state.chat)
     const [text, setText] = useState('')
-
+    console.log(sellerId)
     useEffect(() => {
         if (userInfo?.id) {
             socket.emit('add_user', userInfo.id, userInfo)
